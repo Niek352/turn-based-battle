@@ -7,12 +7,17 @@ namespace _Scripts.Character
     [RequireComponent(typeof(Health))]
     public class BaseCharacter : MonoBehaviour
     {
-        private Health health;
-        private SkeletonAnimation skeletonAnimation;
-
-        public void Init()
+        [SerializeField] private Health health;
+        [SerializeField] private SkeletonAnimation skeletonAnimation;
+        private bool isEnemy;
+        
+        public void Init(bool isEnemy)
         {
-            
+            this.isEnemy = isEnemy;
+            skeletonAnimation.initialFlipX = isEnemy;
+            skeletonAnimation.Initialize(true);
+
+
         }
         
         private void OnValidate()

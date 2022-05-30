@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf35bceef427f748bc4b0bb90366f42, type: 3}
   m_Name: BattleData
   m_EditorClassIdentifier: 
+  playerCharacters:
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  enemyCharacters:
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+  - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}

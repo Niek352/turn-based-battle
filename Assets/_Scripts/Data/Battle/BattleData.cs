@@ -1,3 +1,4 @@
+using _Scripts.Character;
 using UnityEngine;
 
 namespace _Scripts.Data.Battle
@@ -7,5 +8,8 @@ namespace _Scripts.Data.Battle
     {
         [SerializeField] private Character.BaseCharacter[] playerCharacters;
         [SerializeField] private Character.BaseCharacter[] enemyCharacters;
+
+        public BaseCharacter[] PlayerCharacters => playerCharacters;
+        public BaseCharacter[] EnemyCharacters => enemyCharacters;
     }
 }

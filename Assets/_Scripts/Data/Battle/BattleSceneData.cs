@@ -11,5 +11,10 @@ namespace _Scripts.Data.Battle
 
         [SerializeField] private Button attackBtn;
         [SerializeField] private Button waitBtn;
+
+        public Transform[] PlayerCharactersPositions => playerCharactersPositions;
+        public Transform[] EnemyCharactersPositions => enemyCharactersPositions;
+        public Button AttackBtn => attackBtn;
+        public Button WaitBtn => waitBtn;
     }
 }
