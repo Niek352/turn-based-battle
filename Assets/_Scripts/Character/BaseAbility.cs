@@ -6,11 +6,14 @@ namespace _Scripts.Character
 {
     public abstract class BaseAbility : ScriptableObject
     {
+        [Header("Base")]
         [SerializeField] private Sprite abilitySprite;
         [SerializeField] private string abilityText;
-        
-        [SerializeField] private BaseCharacter character;
         [SerializeField] private TargetType targetType;
+        private BaseCharacter character;
+        public Sprite AbilitySprite => abilitySprite;
+        public string AbilityText => abilityText;
+
 
         protected abstract void UseAbility(BaseCharacter target);
        

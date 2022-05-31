@@ -208,6 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 2197841366341563872}
   skeletonAnimation: {fileID: 7534465983795145561}
+  abilities:
+  - {fileID: 11400000, guid: a93d0afed6da9904e98a2268a586ee9a, type: 2}
 --- !u!114 &2197841366341563872
 MonoBehaviour:
   m_ObjectHideFlags: 0

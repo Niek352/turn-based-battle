@@ -1,7 +1,7 @@
 ﻿public enum TargetType
 {
     Player,
-    AlLPlayer,
+    AllPlayer,
     Enemy,
     AllEnemy,
     All,

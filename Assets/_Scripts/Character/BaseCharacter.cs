@@ -10,14 +10,16 @@ namespace _Scripts.Character
         [SerializeField] private Health health;
         [SerializeField] private SkeletonAnimation skeletonAnimation;
         [SerializeField] private BaseAbility[] abilities;
+        private AbilityGenerator abilityGenerator;
 
         public bool IsEnemy { get; private set; }
 
-        public void Init(bool isEnemy)
+        public void Init(bool isEnemy, AbilityGenerator abilityGenerator)
         {
             this.IsEnemy = isEnemy;
             skeletonAnimation.initialFlipX = isEnemy;
             skeletonAnimation.Initialize(true);
+            this.abilityGenerator = abilityGenerator;
         }
         
         private void OnValidate()
@@ -30,9 +32,7 @@ namespace _Scripts.Character
         {
             if (IsEnemy == false)
             {
-                                
-                
-                
+                abilityGenerator.SpawnAbilities(abilities);
             }
         }
     }

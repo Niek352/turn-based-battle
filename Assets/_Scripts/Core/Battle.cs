@@ -59,7 +59,7 @@ namespace _Scripts.Core
                     Instantiate(battleCharactersData[index],characterRoots[index],
                         false);
                 
-                character.Init(isEnemy);
+                character.Init(isEnemy,BattleSceneData.Instance.AbilityGenerator);
                 characters.Add(character);
             }
         }

@@ -7,15 +7,17 @@ namespace _Scripts.Character
 {
     public class AbilityItem : MonoBehaviour, IPointerClickHandler
     {
-        private Image abilityImg;
-        private TMP_Text abilityTxt;
+        [SerializeField] private Image abilityImg;
+        [SerializeField] private TMP_Text abilityTxt;
         private BaseAbility baseAbility;
         private bool stateIsActive;
+        private Color cashedColor;
         
-        public void Init(Sprite abilitySprite, string abilityText, BaseAbility baseAbility)
+        public void Init(BaseAbility baseAbility)
         {
-            abilityImg.sprite = abilitySprite;
-            abilityTxt.text = abilityText;
+            cashedColor = abilityImg.color;
+            abilityImg.sprite = baseAbility.AbilitySprite;
+            abilityTxt.text = baseAbility.AbilityText;
             this.baseAbility = baseAbility;
         }
 
@@ -26,12 +28,12 @@ namespace _Scripts.Character
             {
                 StopCoroutine(baseAbility.WaitTargetOnClick());
                 stateIsActive = false;
-                abilityImg.color = Color.white;
+                abilityImg.color = cashedColor;
             }
             else
             {
                 StartCoroutine(baseAbility.WaitTargetOnClick());
-                stateIsActive = false;
+                stateIsActive = true;
                 abilityImg.color = Color.red;
             }
         }
