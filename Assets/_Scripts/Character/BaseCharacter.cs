@@ -9,21 +9,31 @@ namespace _Scripts.Character
     {
         [SerializeField] private Health health;
         [SerializeField] private SkeletonAnimation skeletonAnimation;
-        private bool isEnemy;
-        
+        [SerializeField] private BaseAbility[] abilities;
+
+        public bool IsEnemy { get; private set; }
+
         public void Init(bool isEnemy)
         {
-            this.isEnemy = isEnemy;
+            this.IsEnemy = isEnemy;
             skeletonAnimation.initialFlipX = isEnemy;
             skeletonAnimation.Initialize(true);
-
-
         }
         
         private void OnValidate()
         {
             health = GetComponent<Health>();
             skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
+        }
+
+        private void OnMouseDown()
+        {
+            if (IsEnemy == false)
+            {
+                                
+                
+                
+            }
         }
     }
 }

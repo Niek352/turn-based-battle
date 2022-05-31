@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be87a84d5870c9409ca09159c5abb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 2197841366341563872}
+  skeletonAnimation: {fileID: 7534465983795145561}
 --- !u!114 &2197841366341563872
 MonoBehaviour:
   m_ObjectHideFlags: 0

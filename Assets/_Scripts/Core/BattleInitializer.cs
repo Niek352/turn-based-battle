@@ -7,7 +7,7 @@ namespace _Scripts.Core
     {
         [SerializeField] private BattleData battleData;
         [SerializeField] private Battle battle;
-        public void StartBattle()
+        public void InitBattle()
         {
             var newBattle = Instantiate(battle);
             newBattle.Init(battleData);

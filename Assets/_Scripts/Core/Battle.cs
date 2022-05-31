@@ -25,26 +25,42 @@ namespace _Scripts.Core
             {
                 yield return null;
             }
-            GenerateCharacters();
+            GenerateCharacters(out List<BaseCharacter> characters);
+            //SubscribeButtons
+            BattleSystem.Instance.StartBattle(characters.ToArray());
         }
 
-        private void GenerateCharacters()
+        private void GenerateCharacters(out List<BaseCharacter> characters)
+        {
+            characters = new List<BaseCharacter>();
+
+            GenerateCharacter(
+                ref characters,
+                battleData.PlayerCharacters, 
+                BattleSceneData.Instance.PlayerCharactersPositions,
+                false);
+            
+            GenerateCharacter(
+                ref characters, 
+                battleData.EnemyCharacters,
+                BattleSceneData.Instance.EnemyCharactersPositions, 
+                true);
+        }
+
+        private void GenerateCharacter(
+            ref List<BaseCharacter> characters, 
+            IReadOnlyList<BaseCharacter> battleCharactersData, 
+            IReadOnlyList<Transform> characterRoots,
+            bool isEnemy)
         {
             for (var index = 0; index < battleData.PlayerCharacters.Length; index++)
             {
-                var character = 
-                    Instantiate(battleData.PlayerCharacters[index], BattleSceneData.Instance.PlayerCharactersPositions[index], false);
+                var character =
+                    Instantiate(battleCharactersData[index],characterRoots[index],
+                        false);
                 
-                character.Init(false);
-            }
-
-            for (var index = 0; index < battleData.EnemyCharacters.Length; index++)
-            {
-                var character = 
-                    Instantiate(battleData.PlayerCharacters[index], BattleSceneData.Instance.EnemyCharactersPositions[index], false);
-                
-                character.Init(true);
-                
+                character.Init(isEnemy);
+                characters.Add(character);
             }
         }
     }

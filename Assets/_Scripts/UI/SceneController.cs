@@ -25,6 +25,6 @@ public class SceneController : MonoBehaviour
     private void StartGame()
     {
         print("Start");
-        battleInitializer.StartBattle();
+        battleInitializer.InitBattle();
     }
 }
