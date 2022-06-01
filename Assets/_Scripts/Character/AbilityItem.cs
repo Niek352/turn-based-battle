@@ -33,7 +33,7 @@ namespace _Scripts.Character
             }
             else
             {
-                TargetPicker.Instance.GetTargetWithWaiting(TargetType.Enemy,null);
+                baseAbility.WaitTargetOnClick();
                 stateIsActive = true;
                 abilityImg.color = Color.red;
             }

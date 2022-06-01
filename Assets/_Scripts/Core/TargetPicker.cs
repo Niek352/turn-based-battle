@@ -26,17 +26,17 @@ namespace _Scripts.Core
         public void Dispose()
             => disposables?.Dispose();
 
-        public void GetTargetWithWaiting(TargetType targetType, Action<BaseCharacter> onTargetAdded)
+        public void GetTargetWithWaiting(TargetType targetType, Action<BaseCharacter> onTargetPicked)
         {
             disposables?.Dispose();
             disposables = new CompositeDisposable();
             switch (targetType)
             {
                 case TargetType.Player:
-                    WaitTargetTo(playerCharacters, onTargetAdded);
+                    WaitTargetTo(playerCharacters, onTargetPicked);
                     break;
                 case TargetType.Enemy:
-                    WaitTargetTo(enemyCharacters, onTargetAdded);
+                    WaitTargetTo(enemyCharacters, onTargetPicked);
                     break;
                 
                 case TargetType.AllPlayer:

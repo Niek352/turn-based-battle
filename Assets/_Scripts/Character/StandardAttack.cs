@@ -9,7 +9,7 @@ namespace _Scripts.Character
         
         protected override void UseAbility(BaseCharacter target)
         {
-            
+            target.GetDamage(damage);
         }
     }
 }

@@ -19,9 +19,9 @@ namespace _Scripts.Character
         protected abstract void UseAbility(BaseCharacter target);
        
 
-        public void WaitTargetOnClick(Action callback)
+        public void WaitTargetOnClick()
         {
-           
+           TargetPicker.Instance.GetTargetWithWaiting(targetType, UseAbility);
         }
     }
 }
