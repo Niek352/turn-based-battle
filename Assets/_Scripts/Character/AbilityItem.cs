@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using _Scripts.Core;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,13 +27,13 @@ namespace _Scripts.Character
         {
             if (stateIsActive)
             {
-                StopCoroutine(baseAbility.WaitTargetOnClick());
+                TargetPicker.Instance.Dispose();
                 stateIsActive = false;
                 abilityImg.color = cashedColor;
             }
             else
             {
-                StartCoroutine(baseAbility.WaitTargetOnClick());
+                TargetPicker.Instance.GetTargetWithWaiting(TargetType.Enemy,null);
                 stateIsActive = true;
                 abilityImg.color = Color.red;
             }

@@ -9,9 +9,11 @@ namespace _Scripts.Character
     {
         [SerializeField] private Health health;
         [SerializeField] private SkeletonAnimation skeletonAnimation;
+        [SerializeField] private CharacterHover characterHover;
         [SerializeField] private BaseAbility[] abilities;
         private AbilityGenerator abilityGenerator;
 
+        public CharacterHover CharacterHover => characterHover;
         public bool IsEnemy { get; private set; }
 
         public void Init(bool isEnemy, AbilityGenerator abilityGenerator)

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using _Scripts.Core;
 using UnityEngine;
 
@@ -18,15 +19,9 @@ namespace _Scripts.Character
         protected abstract void UseAbility(BaseCharacter target);
        
 
-        public IEnumerator WaitTargetOnClick()
+        public void WaitTargetOnClick(Action callback)
         {
-            yield return TargetPicker.Instance.GetTarget(targetType, baseCharacter =>
-            {
-                if (baseCharacter)
-                {
-                    UseAbility(baseCharacter);
-                }
-            });
+           
         }
     }
 }
