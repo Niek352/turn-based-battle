@@ -449,11 +449,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7534465984641989626}
-  - component: {fileID: 7534465984641989627}
-  - component: {fileID: 7534465984641989624}
   - component: {fileID: 7534465984641989625}
   - component: {fileID: 2197841366341563872}
   - component: {fileID: 2173937635817264347}
+  - component: {fileID: 7534465984641989627}
+  - component: {fileID: 7534465984641989624}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -478,6 +478,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7534465984641989625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534465984641989629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be87a84d5870c9409ca09159c5abb78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  abilities:
+  - {fileID: 11400000, guid: a93d0afed6da9904e98a2268a586ee9a, type: 2}
+  health: {fileID: 2197841366341563872}
+  skeletonAnimation: {fileID: 7534465983795145561}
+  characterHover: {fileID: 2173937635817264347}
+  characterAnimation: {fileID: 7534465984641989627}
+--- !u!114 &2197841366341563872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534465984641989629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e718e046b74d02a78c485582c13b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  hpBar: {fileID: 3146250132389415190}
+--- !u!114 &2173937635817264347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534465984641989629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90339897c727432285c8018a0a97ba8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 28030714028824065}
 --- !u!114 &7534465984641989627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,48 +563,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.555618, y: 7.8441772}
   m_EdgeRadius: 0
---- !u!114 &7534465984641989625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534465984641989629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be87a84d5870c9409ca09159c5abb78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  abilities:
-  - {fileID: 11400000, guid: a93d0afed6da9904e98a2268a586ee9a, type: 2}
-  health: {fileID: 2197841366341563872}
-  skeletonAnimation: {fileID: 7534465983795145561}
-  characterHover: {fileID: 2173937635817264347}
---- !u!114 &2197841366341563872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534465984641989629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e718e046b74d02a78c485582c13b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  hpBar: {fileID: 3146250132389415190}
---- !u!114 &2173937635817264347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534465984641989629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90339897c727432285c8018a0a97ba8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 28030714028824065}

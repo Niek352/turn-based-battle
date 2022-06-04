@@ -1,4 +1,5 @@
-﻿using _Scripts.Character;
+﻿using System;
+using _Scripts.Character;
 using UnityEngine;
 
 namespace _Scripts.Abilities
@@ -8,9 +9,9 @@ namespace _Scripts.Abilities
     {
         [SerializeField] private float damage;
         
-        protected override void UseAbility(BaseCharacter target)
+        protected override void UseAbilityOnTarget(BaseCharacter baseCharacter)
         {
-            target.GetDamage(damage);
+            baseCharacter.GetDamage(damage);
         }
     }
 }

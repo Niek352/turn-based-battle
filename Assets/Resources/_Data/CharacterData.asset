@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb4552c9787c4e10a27f34e4c4e2f5de, type: 3}
-  m_Name: StandardAttack
+  m_Script: {fileID: 11500000, guid: 3230fd2a795440388f8489d548540994, type: 3}
+  m_Name: CharacterData
   m_EditorClassIdentifier: 
-  abilitySprite: {fileID: 21300000, guid: 718074e4e56a5404e824bf8e6571ea7d, type: 3}
-  abilityText: Attack
-  animationName: Miner_1
-  targetType: 2
-  damage: 10
+  maxHealth: 100
+  abilities:
+  - {fileID: 11400000, guid: a93d0afed6da9904e98a2268a586ee9a, type: 2}

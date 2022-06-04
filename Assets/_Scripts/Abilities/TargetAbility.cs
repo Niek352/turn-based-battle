@@ -8,16 +8,22 @@ namespace _Scripts.Abilities
     {
         [SerializeField] private TargetType targetType;
 
-        protected abstract void UseAbility(BaseCharacter target);
+        protected sealed override void UseAbility() { }
 
-        public sealed override void OnClick()
+        protected abstract void UseAbilityOnTarget(BaseCharacter baseCharacter);
+        
+        public sealed override void OnClick(BaseCharacter character)
         {
-            WaitTargetOnClick();
+            WaitTargetOnClick(character);
         }
     
-        private void WaitTargetOnClick()
+        private void WaitTargetOnClick(BaseCharacter character)
         {
-            TargetPicker.Instance.GetTargetWithWaiting(targetType, UseAbility);
+            TargetPicker.Instance.GetTargetWithWaiting(targetType,baseCharacter =>
+            {
+                UseAbilityOnTarget(baseCharacter);
+                DoAnimation(character, EndTurn);
+            });
         }
     }
 }

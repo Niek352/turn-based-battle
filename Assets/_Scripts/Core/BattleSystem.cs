@@ -30,7 +30,7 @@ namespace _Scripts.Core
             BaseAbility.onAbilityUsed -= OnAbilityUsed;
         }
 
-        private void OnAbilityUsed(BaseCharacter character)
+        private void OnAbilityUsed()
         {
             ChangeState();
         }

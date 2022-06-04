@@ -9,10 +9,11 @@ namespace _Scripts.Core
 {
     public class Battle : MonoBehaviour
     {
-        private BattleData battleData;
+        private FakeBattleData battleData;
         private const string BattleSceneName = "Battle";
         
-        public void Init(BattleData battleData)
+        
+        public void Init(FakeBattleData battleData)
         {
             this.battleData = battleData;
             StartCoroutine(GenerateLevel());
@@ -36,13 +37,13 @@ namespace _Scripts.Core
 
             GenerateCharacter(
                 ref characters,
-                battleData.PlayerCharacters, 
+                battleData.BattleData.PlayerCharacters, 
                 BattleSceneData.Instance.PlayerCharactersPositions,
                 false);
             
             GenerateCharacter(
                 ref characters, 
-                battleData.EnemyCharacters,
+                battleData.BattleData.EnemyCharacters,
                 BattleSceneData.Instance.EnemyCharactersPositions, 
                 true);
         }
@@ -53,13 +54,13 @@ namespace _Scripts.Core
             IReadOnlyList<Transform> characterRoots,
             bool isEnemy)
         {
-            for (var index = 0; index < battleData.PlayerCharacters.Length; index++)
+            for (var index = 0; index < battleCharactersData.Count; index++)
             {
                 var character =
                     Instantiate(battleCharactersData[index],characterRoots[index],
                         false);
                 
-                character.Init(isEnemy,BattleSceneData.Instance.AbilityGenerator);
+                character.Init(isEnemy,BattleSceneData.Instance.AbilityGenerator,battleData.CharacterData);
                 characters.Add(character);
             }
         }

@@ -5,7 +5,7 @@ namespace _Scripts.Core
 {
     public class BattleInitializer : MonoBehaviour
     {
-        [SerializeField] private BattleData battleData;
+        [SerializeField] private FakeBattleData battleData;
         [SerializeField] private Battle battle;
         public void InitBattle()
         {

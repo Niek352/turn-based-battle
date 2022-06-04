@@ -14,9 +14,11 @@ namespace _Scripts.Abilities
         private BaseAbility baseAbility;
         private bool stateIsActive;
         private Color cashedColor;
+        private BaseCharacter character;
         
-        public void Init(BaseAbility baseAbility)
+        public void Init(BaseCharacter baseCharacter, BaseAbility baseAbility)
         {
+            character = baseCharacter;
             cashedColor = abilityImg.color;
             abilityImg.sprite = baseAbility.AbilitySprite;
             abilityTxt.text = baseAbility.AbilityText;
@@ -33,7 +35,7 @@ namespace _Scripts.Abilities
             }
             else
             {
-                baseAbility.OnClick();
+                baseAbility.OnClick(character);
                 stateIsActive = true;
                 abilityImg.color = Color.red;
             }

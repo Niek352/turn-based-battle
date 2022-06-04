@@ -16,13 +16,13 @@ namespace _Scripts.Abilities
                 Destroy(ability.gameObject);
             }
         }
-        public void SpawnAbilities(BaseAbility[] abilities)
+        public void SpawnAbilities(BaseCharacter character, BaseAbility[] abilities)
         {
             ClearAbilities();
             foreach (var baseAbility in abilities)
             {
                 var newAbility = Instantiate(prefabAbilityItem, abilitiesRoot,false);
-                newAbility.Init(baseAbility);
+                newAbility.Init(character,baseAbility);
             }
         }
     }

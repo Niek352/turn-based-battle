@@ -8,22 +8,26 @@ namespace _Scripts.Character
     [RequireComponent(typeof(Health))]
     public class BaseCharacter : MonoBehaviour
     {
-        [Header("CharacterData")]
-        [SerializeField] private float maxHealth;
-        [SerializeField] private BaseAbility[] abilities;
-        [Space(10)]
+
+        private CharacterData data;
         [Header("Links")]
         [SerializeField] private Health health;
         [SerializeField] private SkeletonAnimation skeletonAnimation;
         [SerializeField] private CharacterHover characterHover;
-
+        [SerializeField] private CharacterAnimation characterAnimation;
+        
         private AbilityGenerator abilityGenerator;
+
+
+        public CharacterAnimation CharacterAnimation => characterAnimation;
         public CharacterHover CharacterHover => characterHover;
+        
         public bool IsEnemy { get; private set; }
 
-        public void Init(bool isEnemy, AbilityGenerator abilityGenerator)
+        public void Init(bool isEnemy, AbilityGenerator abilityGenerator, CharacterData data)
         {
-            health.Init(maxHealth);
+            this.data = data;
+            health.Init(data.MaxHealth);
             this.IsEnemy = isEnemy;
             skeletonAnimation.initialFlipX = isEnemy;
             skeletonAnimation.Initialize(true);
@@ -40,13 +44,14 @@ namespace _Scripts.Character
         {
             if (IsEnemy == false)
             {
-                abilityGenerator.SpawnAbilities(abilities);
+                abilityGenerator.SpawnAbilities(this,data.Abilities);
             }
         }
 
         public void GetDamage(float damage)
         {
             health.GetDamage(damage);
+            characterAnimation.TriggerAnimation("Damage",(() => print("End")));
         }
     }
 }
