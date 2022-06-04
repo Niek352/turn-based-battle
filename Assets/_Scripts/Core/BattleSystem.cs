@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts.Abilities;
 using _Scripts.Character;
 using _Scripts.Utilities;
 using UnityEngine;
@@ -10,32 +11,41 @@ namespace _Scripts.Core
     public class BattleSystem : Singleton<BattleSystem>
     {
         [SerializeField] private TargetPicker picker; 
-        [SerializeField] private AbilityGenerator abilityGenerator; 
-        private Action<BattleState> onStateChanged;
         private BattleState battleState;
+        
         
         public void StartBattle(BaseCharacter[] baseCharacters)
         {
             picker.Init(baseCharacters);
+
+            BaseAbility.onAbilityUsed += OnAbilityUsed;
+            
+            
             var turn = ChooseFirstTurn();
             ChangeState(turn);
         }
 
-        private static BattleState ChooseFirstTurn()
+        private void OnDestroy()
         {
-            return Random.Range(0, 2) == 0 ? BattleState.PlayerTurn : BattleState.EnemyTurn;
+            BaseAbility.onAbilityUsed -= OnAbilityUsed;
         }
 
-        private void ChangeState(BattleState state)
+        private void OnAbilityUsed(BaseCharacter character)
         {
-            battleState = state;
-            
-            onStateChanged?.Invoke(state);
+            ChangeState();
         }
+
+        private static BattleState ChooseFirstTurn()
+            =>  Random.Range(0, 2) == 0 ? BattleState.PlayerTurn : BattleState.EnemyTurn;
+        
+        private void ChangeState()
+            => battleState = battleState == BattleState.EnemyTurn ? BattleState.PlayerTurn : BattleState.EnemyTurn;
+            
+        private void ChangeState(BattleState state)
+            => battleState = state;
         
         private enum BattleState
         {
-            Wait = 0,
             PlayerTurn,
             EnemyTurn,
         }

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using _Scripts.Character;
+using UnityEngine;
 
-namespace _Scripts.Character
+namespace _Scripts.Abilities
 {
     [CreateAssetMenu(fileName = "StandardAttack", menuName = "Abilities/StandardAttack")]
-    public class StandardAttack : BaseAbility
+    public class StandardAttack : TargetAbility
     {
         [SerializeField] private float damage;
         

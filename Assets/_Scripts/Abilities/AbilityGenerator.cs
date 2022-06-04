@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using _Scripts.Core;
+using _Scripts.Character;
 using UnityEngine;
 
-namespace _Scripts.Character
+namespace _Scripts.Abilities
 {
     public class AbilityGenerator : MonoBehaviour
     {

@@ -1,10 +1,11 @@
-﻿using _Scripts.Core;
+﻿using _Scripts.Character;
+using _Scripts.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace _Scripts.Character
+namespace _Scripts.Abilities
 {
     public class AbilityItem : MonoBehaviour, IPointerClickHandler
     {
@@ -22,7 +23,6 @@ namespace _Scripts.Character
             this.baseAbility = baseAbility;
         }
 
-
         public void OnPointerClick(PointerEventData eventData)
         {
             if (stateIsActive)
@@ -33,7 +33,7 @@ namespace _Scripts.Character
             }
             else
             {
-                baseAbility.WaitTargetOnClick();
+                baseAbility.OnClick();
                 stateIsActive = true;
                 abilityImg.color = Color.red;
             }
