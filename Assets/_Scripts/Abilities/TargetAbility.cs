@@ -10,19 +10,24 @@ namespace _Scripts.Abilities
 
         protected sealed override void UseAbility() { }
 
-        protected abstract void UseAbilityOnTarget(BaseCharacter baseCharacter);
+        protected abstract void UseAbilityOnTarget(BaseCharacter user,BaseCharacter target);
         
-        public sealed override void OnClick(BaseCharacter character)
+        public sealed override void OnClick(BaseCharacter user)
         {
-            WaitTargetOnClick(character);
+            WaitTargetOnClick(user);
         }
     
-        private void WaitTargetOnClick(BaseCharacter character)
+        private void WaitTargetOnClick(BaseCharacter user)
         {
-            TargetPicker.Instance.GetTargetWithWaiting(targetType,baseCharacter =>
+            TargetPicker.Instance.GetTargetWithWaiting(user, targetType,target =>
             {
-                UseAbilityOnTarget(baseCharacter);
-                DoAnimation(character, EndTurn);
+                
+                OnAbilityUsed();
+                DoAnimation(user,()=>
+                {
+                    UseAbilityOnTarget(user, target);
+                    EndTurn();
+                },target);
             });
         }
     }

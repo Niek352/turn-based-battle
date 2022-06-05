@@ -14,26 +14,42 @@ namespace _Scripts.Abilities
         public Sprite AbilitySprite => abilitySprite;
         public string AbilityText => abilityText;
 
+        public static Action onEndTurn;
         public static Action onAbilityUsed;
         
 
         protected abstract void UseAbility();
 
    
-        public virtual void OnClick(BaseCharacter character)
+        public virtual void OnClick(BaseCharacter user)
         {
             UseAbility();
-            DoAnimation(character, EndTurn);
+            OnAbilityUsed();
+            DoAnimation(user, EndTurn);
         }
 
-        protected virtual void DoAnimation(BaseCharacter character, Action callback)
+        protected virtual void DoAnimation(BaseCharacter user, Action endTurn, params BaseCharacter[] targets)
         {
-            character.CharacterAnimation.TriggerAnimation(animationName,callback);
-        } 
+            if (string.IsNullOrEmpty(animationName))
+                return;
+            
+            AbilityAnimator.Instance.DoAnimation(
+                user,
+                () =>
+                {
+                    user.CharacterAnimation.TriggerAnimation(animationName,endTurn);
+                },
+                targets);
+        }
+
+        protected void OnAbilityUsed()
+        {
+            onAbilityUsed?.Invoke();
+        }
 
         protected void EndTurn()
         {
-            onAbilityUsed?.Invoke();
+            AbilityAnimator.Instance.MoveBack(onEndTurn);
         } 
     }
 }

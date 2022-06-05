@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3230fd2a795440388f8489d548540994, type: 3}
   m_Name: CharacterData
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 20
   abilities:
   - {fileID: 11400000, guid: a93d0afed6da9904e98a2268a586ee9a, type: 2}
+  - {fileID: 11400000, guid: 90a2c4a6e883cab439616a3a464a2e76, type: 2}

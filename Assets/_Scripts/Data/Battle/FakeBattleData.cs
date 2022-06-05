@@ -16,16 +16,16 @@ namespace _Scripts.Data.Battle
     [Serializable]
     public struct BattleData
     {
-        [SerializeField] private BaseCharacter[] playerCharacters;
-        [SerializeField] private BaseCharacter[] enemyCharacters;
+        [SerializeField] private PlayerCharacter[] playerCharacters;
+        [SerializeField] private EnemyCharacter[] enemyCharacters;
 
-        public BattleData(BaseCharacter[] playerCharacters,BaseCharacter[] enemyCharacters)
+        public BattleData(PlayerCharacter[] playerCharacters,EnemyCharacter[] enemyCharacters)
         {
             this.playerCharacters = playerCharacters;
             this.enemyCharacters = enemyCharacters;
         }
 
-        public BaseCharacter[] PlayerCharacters => playerCharacters;
-        public BaseCharacter[] EnemyCharacters => enemyCharacters;
+        public PlayerCharacter[] PlayerCharacters => playerCharacters;
+        public EnemyCharacter[] EnemyCharacters => enemyCharacters;
     }
 }

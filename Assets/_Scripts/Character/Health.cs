@@ -8,11 +8,15 @@ namespace _Scripts.Character
     {
         [SerializeField] private float maxHealth;
         [SerializeField] private Image hpBar;
+        [SerializeField] private GameObject blood;
         private float currentHealth;
-        public Action onCharacterDied;
+        public bool IsAlive => currentHealth > 0;
+        //public static Action<BaseCharacter> onCharacterDied;
+        private BaseCharacter character;
         
-        public void Init(float health)
+        public void Init(BaseCharacter character, float health)
         {
+            this.character = character;
             maxHealth = health;
             currentHealth = maxHealth;
         }
@@ -35,7 +39,9 @@ namespace _Scripts.Character
 
         private void Die()
         {
-            onCharacterDied?.Invoke();
+            blood.SetActive(true);
+            character.CharacterAnimation.StopAnim();
+            //onCharacterDied(character);
         }
 
         private void UpdateUI()

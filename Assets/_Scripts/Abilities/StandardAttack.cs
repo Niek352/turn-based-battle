@@ -9,9 +9,9 @@ namespace _Scripts.Abilities
     {
         [SerializeField] private float damage;
         
-        protected override void UseAbilityOnTarget(BaseCharacter baseCharacter)
+        protected override void UseAbilityOnTarget(BaseCharacter user, BaseCharacter target)
         {
-            baseCharacter.GetDamage(damage);
+            target.GetDamage(damage);
         }
     }
 }

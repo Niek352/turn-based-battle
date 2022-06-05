@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleData:
     playerCharacters:
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
+    - {fileID: 8551268310228908520, guid: b2c325df4415a2747967ecad57d9162c, type: 3}
+    - {fileID: 8551268310228908520, guid: b2c325df4415a2747967ecad57d9162c, type: 3}
+    - {fileID: 8551268310228908520, guid: b2c325df4415a2747967ecad57d9162c, type: 3}
+    - {fileID: 8551268310228908520, guid: b2c325df4415a2747967ecad57d9162c, type: 3}
     enemyCharacters:
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-    - {fileID: 7534465984641989625, guid: 077a50431aa7bb2448e761cfb0f1fe85, type: 3}
-  baseData: {fileID: 0}
+    - {fileID: 6146887377822684562, guid: 3413b9b4fdc7fa842a8916c6ed1849ec, type: 3}
+    - {fileID: 6146887377822684562, guid: 3413b9b4fdc7fa842a8916c6ed1849ec, type: 3}
+    - {fileID: 6146887377822684562, guid: 3413b9b4fdc7fa842a8916c6ed1849ec, type: 3}
+    - {fileID: 6146887377822684562, guid: 3413b9b4fdc7fa842a8916c6ed1849ec, type: 3}
+  baseData: {fileID: 11400000, guid: c315fe4b181cb2e4fbff80d0111a43f3, type: 2}

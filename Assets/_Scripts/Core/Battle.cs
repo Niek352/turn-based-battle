@@ -11,7 +11,8 @@ namespace _Scripts.Core
     {
         private FakeBattleData battleData;
         private const string BattleSceneName = "Battle";
-        
+
+        private EndBattleData endBattleData;
         
         public void Init(FakeBattleData battleData)
         {
@@ -28,7 +29,7 @@ namespace _Scripts.Core
             }
             GenerateCharacters(out List<BaseCharacter> characters);
             //SubscribeButtons
-            BattleSystem.Instance.StartBattle(characters.ToArray());
+            BattleSystem.Instance.StartBattle(characters.ToArray(),this);
         }
 
         private void GenerateCharacters(out List<BaseCharacter> characters)
@@ -48,6 +49,7 @@ namespace _Scripts.Core
                 true);
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private void GenerateCharacter(
             ref List<BaseCharacter> characters, 
             IReadOnlyList<BaseCharacter> battleCharactersData, 
@@ -60,8 +62,26 @@ namespace _Scripts.Core
                     Instantiate(battleCharactersData[index],characterRoots[index],
                         false);
                 
-                character.Init(isEnemy,BattleSceneData.Instance.AbilityGenerator,battleData.CharacterData);
+                character.Init(isEnemy,battleData.CharacterData);
                 characters.Add(character);
+            }
+        }
+
+        public void EndBattle(EndBattleData battleData)
+        {
+            endBattleData = battleData;
+            SceneManager.LoadScene(0);
+            //Save Data
+            Destroy(this);
+        }
+        
+        public struct EndBattleData
+        {
+            private bool playerWin;
+
+            public EndBattleData(bool playerWin)
+            {
+                this.playerWin = playerWin;
             }
         }
     }
